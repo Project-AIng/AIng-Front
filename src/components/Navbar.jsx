@@ -50,7 +50,7 @@ const [open, setOpen] = useState(true);
       </Link>
       
       <div className='flex justify-end space-x-3 font-semibold p-5 px-3 '>
-      <Link to='/Signup'>
+      <Link to='/signup'>
       <div className='font-semibold text-center px-3'>회원가입</div></Link>
       <Link to='/Login'>
       <div className=' font-semibold text-center'>로그인</div></Link>
