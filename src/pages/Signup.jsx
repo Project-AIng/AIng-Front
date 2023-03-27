@@ -4,21 +4,21 @@ import axios from 'axios';
 
 export default function Signup() {
   const [user, setUser] = useState({
-    username: '',
+    name: '',
     email: '',
     password: '',
     password2: '',
   });
 
   const [errorMessage, setErrorMessage] = useState({
-    username: '',
+    name: '',
     email: '',
     password: '',
     password2: '',
   });
 
   const [labelsVisible, setLabelsVisible] = useState({
-    username: true,
+    name: true,
     email: true,
     password: true,
     password2: true
@@ -47,13 +47,13 @@ export default function Signup() {
     // 유효성 검사
     const message = {};
     switch (name) {
-      case 'username':
+      case 'name':
         if (value.length < 2) {
-          message.username = '이름은 2글자 이상이어야 합니다.';
+          message.name = '이름은 2글자 이상이어야 합니다.';
         } else if (value.length > 6) {
-          message.username = '이름은 6글자 이하이어야 합니다.';
+          message.name = '이름은 6글자 이하이어야 합니다.';
         } else {
-          message.username = '';
+          message.name = '';
         }
         break;
       case 'email':
@@ -91,11 +91,11 @@ export default function Signup() {
     const message = {};
     Object.keys(user).forEach((name) => {
       switch (name) {
-        case 'username':
+        case 'name':
           if (user[name].length < 2) {
-            message.username = '이름은 2글자 이상이어야 합니다.';
+            message.name = '이름은 2글자 이상이어야 합니다.';
           } else if (user[name].length > 6) {
-            message.username = '이름은 6글자 이하이어야 합니다.';
+            message.name = '이름은 6글자 이하이어야 합니다.';
           }
           break;
         case 'email':
@@ -153,14 +153,14 @@ export default function Signup() {
   <form className='input_data' onSubmit={handleSubmit}>
     <input
       type="text"
-      name="username"
-      value={user.username}
+      name="name"
+      value={user.name}
       onChange={handleChange}
       onFocus={handleFocus}
       onBlur={handleBlur}
     />
-    {labelsVisible.username && <label>이름을 입력해주세요</label>}
-    {errorMessage.username && <p className='error_message'>{errorMessage.username}</p>}
+    {labelsVisible.name && <label>이름을 입력해주세요</label>}
+    {errorMessage.name && <p className='error_message'>{errorMessage.name}</p>}
   </form>
   <form className='input_data' onSubmit={handleSubmit}>
     <input
