@@ -10,6 +10,7 @@ import Test from './pages/Test';
 import Interview from './pages/Interview';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import MyPage from './pages/Mypage'; // 추가
 
 const router = createBrowserRouter([
   {
@@ -22,10 +23,10 @@ const router = createBrowserRouter([
       { path: '/Interview', element: <Interview /> },
       { path: '/Signup', element: <Signup /> },
       { path: '/Login', element: <Login /> },
+      { path: '/mypage', element: <MyPage /> }, // 추가
     ],
   },
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
