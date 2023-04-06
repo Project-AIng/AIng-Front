@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
+import Room from "./Room";
 
 export default function Interview() {
-    return (
-        <div>
-            Interview!
-        </div>
-    );
+  return (
+    <div>
+      <Room />
+    </div>
+  );
 }
-
