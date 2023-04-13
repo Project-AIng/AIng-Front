@@ -8,8 +8,12 @@ import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import Test from './pages/Test';
 import Interview from './pages/Interview';
+import TopicChoice from './pages/TopicChoice';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import MyPage from './pages/Mypage'; // 추가
+import MypageMenu from './components/MypageMenu';
+import Deep from './pages/Deep';
 
 const router = createBrowserRouter([
   {
@@ -19,13 +23,23 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: '/Test', element: <Test /> },
-      { path: '/Interview', element: <Interview /> },
+      { path: '/TopicChoice', element: <TopicChoice /> },
       { path: '/Signup', element: <Signup /> },
       { path: '/Login', element: <Login /> },
-    ],
-  },
+      { path: '/Interview', element: <Interview /> },
+      { path: '/MypageMenu', element: <MypageMenu />,
+      children:[
+        {
+          path:'/MypageMenu/MyPage', element: <MyPage />,
+        },
+        {
+          path:'/MypageMenu/Deep', element: <Deep />,
+        },
+      ] },
+  
+      ],
+    },
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
