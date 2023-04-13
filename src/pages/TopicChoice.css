@@ -1,0 +1,15 @@
+.TopicChoiceContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+h1{
+    font-size: 27px;
+    font-weight: semi-bold;
+    text-align: center;
+    color: black;
+    padding: 10px;
+}

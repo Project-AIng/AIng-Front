@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import './pages.css';
 import axios from 'axios';
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -138,6 +140,8 @@ export default function Signup() {
         console.log(response.data);
         // 회원가입 성공 처리
         setIsSignUpSuccessful(true);
+        navigate("/Login");
+        alert("회원가입 완료.");
       })
       .catch((error) => {
         console.log(error.response.data);
