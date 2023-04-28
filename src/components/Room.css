@@ -1,0 +1,107 @@
+.input_data {
+  height: 40px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.input_data input {
+  height: 30px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid silver;
+}
+.input_data label {
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: gray;
+  pointer-events: none;
+  transition: all 0.3 ease;
+}
+.input_data input:focus ~ label {
+  transform: translateY(-30px);
+  font-size: 13px;
+  color: rgb(45, 72, 132);
+}
+.parent-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.chatwrap {
+  position: relative;
+  width: 50%;
+  background-color: #ddd;
+  height: 500px;
+  border: 1px solid #ddd;
+}
+
+.chatwrap {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: flex-end;
+}
+
+.chat {
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.chat div {
+  margin: 10px;
+  padding: 10px;
+  max-width: 60%;
+  border-radius: 10px;
+  color: white;
+  background-color: #0077cc;
+  align-self: flex-end;
+}
+
+.chat .bot {
+  align-self: flex-start;
+  background-color: #e6e6e6;
+  color: black;
+}
+
+.input-wrap {
+  display: flex;
+  background-color: #ddd;
+}
+.input_chat {
+  width: 100%;
+
+  padding: 20px;
+  justify-content: center;
+
+  background-color: #ffff;
+}
+
+.input_chat input {
+  width: 90%;
+  flex: 1;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+}
+
+.input_chat button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #0077cc;
+  color: white;
+}
+.input_chat form {
+  width: 100%;
+}
+.info {
+  width: 50%;
+}
