@@ -104,4 +104,13 @@
 }
 .info {
   width: 50%;
+  color: black;
+}
+
+.input_chat button {
+  margin-right: 10px;
+}
+
+.input_chat button:last-child {
+  margin-right: 0;
 }
