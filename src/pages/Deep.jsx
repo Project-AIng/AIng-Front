@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Test() {
+export default function Deep() {
     return (
         <div>
-            Test!
+            분석 결과
         </div>
     );
 }
