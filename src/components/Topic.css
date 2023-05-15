@@ -22,11 +22,14 @@
     font-size: 20px;
 }
 
+.TopicContainer:hover {
+    transform: translateY(-5px);
+}
+
 div .emoticon {
     font-size: 80px;
-    position: relative;
     width: 100px;
     height: 150px;
-    text-align: right;
-    margin: auto;
+    margin-left: 50px;
+    margin-top: 10px;
 }

@@ -1,7 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { BsRobot } from 'react-icons/bs';
-//import { BsPen } from 'react-icons/bs';
 import { GiTalk } from 'react-icons/gi';
 import { AiOutlineUser } from 'react-icons/ai'; 
 import axios from 'axios';
@@ -39,7 +38,6 @@ export default function Navbar() {
 
 
   const menus = [
-    //{ name: 'Test', link: '/Test', icon: BsPen },
     { name: 'TOPIC', link: '/TopicChoice', icon: GiTalk },
     { name: 'MyPage', link: '/MypageMenu', icon: AiOutlineUser }, 
   ];
@@ -100,8 +98,12 @@ export default function Navbar() {
         <div className='flex justify-end space-x-3 font-semibold p-5 px-3 '>
           {user ? (
           <>
-        <p>{user.name}님</p>
-        <div><button onClick={handleLogout}>로그아웃</button></div>
+        <div className='LogSign-container'>
+          <Link to='/MypageMenu'>
+        <button className='LogSign-text'>{user.name}님</button><span className='line'></span>
+        </Link>
+        <button className='LogSign-text'onClick={handleLogout}>로그아웃</button>
+        </div>
         </>
         ) : (
         <>

@@ -21,16 +21,16 @@ export default function Topic({topic,emoticon}) {
     return (
         <div className='parentContainer'>
         <div className='TopicContainer'
-        onMouseEnter={handleMouseEnter}
+        onClick={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
             {showComponent ? (<> 
             
             <div>
-                <div onClick={()=>{navigate(`/Test`,{state:{topic}})}}> {/* /Test페이지로 이동하며 상태 객체 topic 전달 */}
-                    TEST Go✍🏻</div>
+                <div onClick={()=>{navigate(`/Speak`,{state:{topic}})}}> {/* /Test페이지로 이동하며 상태 객체 topic 전달 */}
+                    SPEAK GO👄</div>
                 <br></br>
-                <div onClick={()=>{navigate(`/Interview`,{state:{topic}})}}>
-                    인터뷰 Go🎤</div>
+                <div onClick={()=>{navigate(`/Chat`,{state:{topic}})}}>
+                    CHAT GO💬</div>
             </div>
             </>):
             (
