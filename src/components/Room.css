@@ -105,3 +105,6 @@
 .info {
   width: 50%;
 }
+.clickable {
+  cursor: pointer;
+}
