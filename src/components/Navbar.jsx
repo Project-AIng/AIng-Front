@@ -1,7 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { BsRobot } from 'react-icons/bs';
-//import { BsPen } from 'react-icons/bs';
 import { GiTalk } from 'react-icons/gi';
 import { AiOutlineUser } from 'react-icons/ai'; 
 import axios from 'axios';
@@ -39,7 +38,6 @@ export default function Navbar() {
 
 
   const menus = [
-    //{ name: 'Test', link: '/Test', icon: BsPen },
     { name: 'TOPIC', link: '/TopicChoice', icon: GiTalk },
     { name: 'MyPage', link: '/MypageMenu', icon: AiOutlineUser }, 
   ];
@@ -67,24 +65,25 @@ export default function Navbar() {
               `}
             >
               {menus?.map((menu, i) => (
-                <div className='text-gray-500 hover:bg-gray-100 transition-all duration-100
-                ease-linear hover:text-basic active:text-basic'>
-                <Link
-                  to={menu?.link}
+                <div
                   key={i}
-                  className='group flex items-center text-sm gap-3.5 
-                  font-medium p-2'>
-                  <div>
-                    {React.createElement(menu?.icon, { size: '20' })}
-                  </div>
-                  <h2 className='font-bold'
-                    style={{
-                      transitionDelay: `${i + 3}00ms`,
-                    }}
-                  >
-                    {menu?.name}
-                  </h2>
-                </Link>
+                  className='text-gray-500 hover:bg-gray-100 transition-all duration-100
+                  ease-linear hover:text-basic active:text-basic'>
+                  <Link
+                    to={menu?.link}
+                    className='group flex items-center text-sm gap-3.5 
+                    font-medium p-2'>
+                    <div>
+                      {React.createElement(menu?.icon, { size: '20' })}
+                    </div>
+                    <h2 className='font-bold'
+                      style={{
+                        transitionDelay: `${i + 3}00ms`,
+                      }}
+                    >
+                      {menu?.name}
+                    </h2>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -100,8 +99,12 @@ export default function Navbar() {
         <div className='flex justify-end space-x-3 font-semibold p-5 px-3 '>
           {user ? (
           <>
-        <p>{user.name}님</p>
-        <div><button onClick={handleLogout}>로그아웃</button></div>
+        <div className='LogSign-container'>
+          <Link to='/MypageMenu'>
+        <button className='LogSign-text'>{user.name}님</button><span className='line'></span>
+        </Link>
+        <button className='LogSign-text'onClick={handleLogout}>로그아웃</button>
+        </div>
         </>
         ) : (
         <>

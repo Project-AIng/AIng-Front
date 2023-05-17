@@ -1,45 +1,65 @@
-import React , { useState }from 'react';
-import './Topic.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Topic.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function Topic({topic,emoticon}) {
+export default function Topic({ topic, emoticon }) {
+  const navigate = useNavigate();
+  const [showComponent, setShowComponent] = useState(false);
 
-    const navigate = useNavigate();
-    const [showComponent, setShowComponent] = useState(false);
-
-    const handleMouseEnter = () => {
-        setShowComponent(true);
+  const handleMouseEnter = () => {
+    setShowComponent(true);
     }
 
     const handleMouseLeave = () => {
         setShowComponent(false);
     };
-    /*const handleClick = () => {
-        setShowComponent(false);
-    };*/
 
-    return (
-        <div className='parentContainer'>
-        <div className='TopicContainer'
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
-            {showComponent ? (<> 
-            
+  const handleChatClick = () => {
+    axios
+      .post("http://localhost:5000/set_topic", { topic })
+      .then(() => {
+        navigate("/Chat", { state: { topic } });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleSpeakClick = () => {
+    axios
+      .post("http://localhost:5000/set_topic", { topic })
+      .then(() => {
+        navigate("/Speak", { state: { topic } });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  
+
+  return (
+    <div className="parentContainer">
+      <div
+        className="TopicContainer"
+        onClick={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {showComponent ? (
+          <>
             <div>
-                <div onClick={()=>{navigate(`/Test`,{state:{topic}})}}> {/* /Test페이지로 이동하며 상태 객체 topic 전달 */}
-                    TEST Go✍🏻</div>
-                <br></br>
-                <div onClick={()=>{navigate(`/Interview`,{state:{topic}})}}>
-                    인터뷰 Go🎤</div>
+            <div onClick={handleSpeakClick}>Speak Go👄</div>
+            <br></br>
+              <div onClick={handleChatClick}>Chat Go💬</div>
             </div>
-            </>):
-            (
-                <>
-                <p>{topic}</p> 
-            <div className='emoticon'>{emoticon}</div>
-            </>)}
-        </div>
+          </>
+        ) : (
+          <>
+            <p>{topic}</p>
+            <div className="emoticon">{emoticon}</div>
+          </>
+        )}
+      </div>
     </div>
-    );
+  );
 }
-

@@ -104,7 +104,18 @@
 }
 .info {
   width: 50%;
+  flex: 1;
+  position: relative;
+}
+.clickable {
+  cursor: pointer;
+}
+.other-results {
   color: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .input_chat button {

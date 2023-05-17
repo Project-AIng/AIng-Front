@@ -18,10 +18,9 @@ export default function Login() {
             });
             const token = response.data.token;
             localStorage.setItem('auth_token', token);
+            navigate("/"); 
             alert("로그인 완료");
-            navigate("/");
-            
-            console.log(response.data);
+            window.location.reload();
         } catch (error) {
             console.error(error);
             setAuthError('잘못된 이메일 혹은 비밀번호입니다.');

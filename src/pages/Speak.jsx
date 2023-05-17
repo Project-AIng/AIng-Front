@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { recordAudio } from "./recordAudio";
 import SttRoom from "../components/SttRoom";
+import { useLocation } from "react-router-dom";
 
 export default function Test() {
+  const {
+    state: { topic }, // topic 값 추출
+  } = useLocation();
+
   const [recorder, setRecorder] = useState(null);
 
   const startRecording = async () => {
@@ -48,8 +53,9 @@ export default function Test() {
   };
 
   return (
-    <div>
-      <h1>Test</h1>
+    <div className="text-black">
+      {topic}에 대해서 SPEAK 
+      <br></br>
       <SttRoom startRecording={startRecording} stopRecording={stopRecording} />
     </div>
   );

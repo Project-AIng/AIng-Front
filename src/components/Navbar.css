@@ -15,6 +15,11 @@
     
 }
 
+.LogIn-text{
+    color: rgba(0, 0, 0, 0.68);
+
+}
+
 .LogSign-text{ 
     transition: all 0.4s linear;
     padding-left: 0.75rem;
