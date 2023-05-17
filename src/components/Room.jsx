@@ -24,16 +24,17 @@ export default function Room() {
   const addOtherResult = (result) => {
     const printedResult = printIfNumericString(result);
     if (printedResult) {
-      setOtherResults([printedResult]);
+      setOtherResults([printedResult]); // Update to replace the existing result with the latest one
     }
   };
+
   const handleUserMessageClick = async (message) => {
     try {
       const response = await axios.post(
         "http://localhost:5000/grammar_correction",
         { message }
       );
-      setSelectedMessage(response.data);
+      setSelectedMessage({ apiResult: response.data, otherResults });
     } catch (error) {
       console.error(error);
     }
@@ -64,13 +65,7 @@ export default function Room() {
         </div>
       </div>
       <div className="info">
-        {selectedMessage ? (
-          <div className="info-container">
-            <MessageInfo message={selectedMessage} />
-            <button onClick={() => setSelectedMessage(null)}>Close</button>
-          </div>
-        ) : null}
-        <div>
+        <div className="other-results">
           {otherResults.map((result, index) => {
             const printedResult = printIfNumericString(result);
             return printedResult ? (
@@ -78,6 +73,15 @@ export default function Room() {
             ) : null;
           })}
         </div>
+        {selectedMessage ? (
+          <div className="info-container">
+            <MessageInfo
+              message={selectedMessage.apiResult}
+              previousResults={selectedMessage.otherResults}
+            />
+            <button onClick={() => setSelectedMessage(null)}>Close</button>
+          </div>
+        ) : null}
       </div>
     </div>
   );
