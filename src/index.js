@@ -6,12 +6,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
-import Test from './pages/Test';
-import Interview from './pages/Interview';
+import Speak from './pages/Speak';
+import Chat from './pages/Chat';
 import TopicChoice from './pages/TopicChoice';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import MyPage from './pages/Mypage'; // 추가
+import MyPage from './pages/Mypage'; 
 import MypageMenu from './components/MypageMenu';
 import Deep from './pages/Deep';
 
@@ -22,11 +22,11 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/Test', element: <Test /> },
+      { path: '/Speak', element: <Speak /> },
       { path: '/TopicChoice', element: <TopicChoice /> },
       { path: '/Signup', element: <Signup /> },
       { path: '/Login', element: <Login /> },
-      { path: '/Interview', element: <Interview /> },
+      { path: '/Chat', element: <Chat /> },
       { path: '/MypageMenu', element: <MypageMenu />,
       children:[
         {
