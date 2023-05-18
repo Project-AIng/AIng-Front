@@ -1,32 +1,8 @@
-.input_data {
-  height: 40px;
-  position: relative;
-  margin-bottom: 20px;
-}
-.input_data input {
-  height: 30px;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid silver;
-}
-.input_data label {
-  font-size: 15px;
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  color: gray;
-  pointer-events: none;
-  transition: all 0.3 ease;
-}
-.input_data input:focus ~ label {
-  transform: translateY(-30px);
-  font-size: 13px;
-  color: rgb(45, 72, 132);
-}
 .parent-container {
   display: flex;
   flex-wrap: wrap;
 }
+
 .chatwrap {
   position: relative;
   width: 50%;
@@ -70,16 +46,15 @@
   color: black;
 }
 
-.input-wrap {
+.inputwrap {
   display: flex;
   background-color: #ddd;
 }
+
 .input_chat {
   width: 100%;
-
   padding: 20px;
   justify-content: center;
-
   background-color: #ffff;
 }
 
@@ -99,20 +74,48 @@
   background-color: #0077cc;
   color: white;
 }
+
 .input_chat form {
   width: 100%;
 }
+
 .info {
   width: 50%;
   flex: 1;
   position: relative;
 }
+
 .clickable {
   cursor: pointer;
 }
+
 .other-results {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.info-container {
+  position: relative;
+}
+
+.info-container button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #0077cc;
+  color: white;
+  margin-top: 10px;
+}
+.score-circle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #0077cc;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
 }

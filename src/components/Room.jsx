@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Bot from "./Bot";
 import MessageInfo from "./MessageInfo";
@@ -11,11 +11,29 @@ export default function Room() {
     }
     return null; // "GRA"
   }
+
+  function extractNumbers(input) {
+    const regex = /\d+/g;
+    const matches = input.match(regex);
+    if (matches) {
+      return matches.map(Number);
+    }
+    return [];
+  }
+
   const [messages, setMessages] = useState([]);
   const [otherResults, setOtherResults] = useState([
     "GRAMMAR: 0 CLARITY: 0 COHERENCE: 0 VOCABULARY: 0 STRUCTURE: 0",
   ]);
+  const [numberValues, setNumberValues] = useState([0, 0, 0, 0, 0]);
   const [selectedMessage, setSelectedMessage] = useState(null);
+
+  useEffect(() => {
+    const extractedNumbers = extractNumbers(otherResults[0]);
+    if (extractedNumbers.length === 5) {
+      setNumberValues(extractedNumbers);
+    }
+  }, [otherResults]);
 
   const addMessage = (message) => {
     setMessages((messages) => [...messages, message]);
@@ -66,13 +84,13 @@ export default function Room() {
       </div>
       <div className="info">
         <div className="other-results">
-          {otherResults.map((result, index) => {
-            const printedResult = printIfNumericString(result);
-            return printedResult ? (
-              <div key={index}>{printedResult}</div>
-            ) : null;
-          })}
+          {numberValues.map((value, index) => (
+            <div key={index} className="score-circle">
+              {value}
+            </div>
+          ))}
         </div>
+
         {selectedMessage ? (
           <div className="info-container">
             <MessageInfo
