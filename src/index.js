@@ -13,6 +13,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import MyPage from './pages/Mypage'; 
 import MypageMenu from './components/MypageMenu';
+import AIngGuide from './pages/AIngGuide';
 import Deep from './pages/Deep';
 
 const router = createBrowserRouter([
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: '/Speak', element: <Speak /> },
       { path: '/TopicChoice', element: <TopicChoice /> },
+      { path: '/AIngGuide', element: <AIngGuide /> },
       { path: '/Signup', element: <Signup /> },
       { path: '/Login', element: <Login /> },
       { path: '/Chat', element: <Chat /> },

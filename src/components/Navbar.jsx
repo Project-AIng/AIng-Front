@@ -1,10 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { BsRobot } from 'react-icons/bs';
-import { GiTalk } from 'react-icons/gi';
-import { AiOutlineUser } from 'react-icons/ai'; 
 import axios from 'axios';
-import './Navbar.css';
+import './css/Navbar.css';
 
 export default function Navbar() {
   const [user, setUser]=useState();
@@ -36,58 +33,17 @@ export default function Navbar() {
     }
   };
 
-
-  const menus = [
-    { name: 'TOPIC', link: '/TopicChoice', icon: GiTalk },
-    { name: 'MyPage', link: '/MypageMenu', icon: AiOutlineUser }, 
-  ];
-
-  const [open, setOpen] = useState(false);
   return (
     <>
       <header className='flex justify-between p-2 border-b border-zinc-300'>
         <section className='flex gap-6'>
-          <div
-            className={`bg-back h-50 w-40 ${open ? 'h-75 ' : 'h-16'}
-            duration-500 text-grey-100`}>
-
-            <div className='bg-back text-basic px-3 py-9 flex justify-start'>
-              <BsRobot
-                size={40}
-                className='cursor-pointer'
-                onClick={() => setOpen(!open)}
-              />
-            </div>
-
-            <div
-              className={`mt-4 flex flex-col gap-4 relatvie whitespace-pre duration-500 
-              ${!open && 'opacity-0 translate-x-28 overflow-hidden'}
-              `}
-            >
-              {menus?.map((menu, i) => (
-                <div
-                  key={i}
-                  className='text-gray-500 hover:bg-gray-100 transition-all duration-100
-                  ease-linear hover:text-basic active:text-basic'>
-                  <Link
-                    to={menu?.link}
-                    className='group flex items-center text-sm gap-3.5 
-                    font-medium p-2'>
-                    <div>
-                      {React.createElement(menu?.icon, { size: '20' })}
-                    </div>
-                    <h2 className='font-bold'
-                      style={{
-                        transitionDelay: `${i + 3}00ms`,
-                      }}
-                    >
-                      {menu?.name}
-                    </h2>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className='StudyGo'>
+        <Link to='/TopicChoice'>
+        Study Go</Link>
+        </div> <div className='AIngIntro'>
+        <Link to='/AIngGuide'>
+        AIng 소개
+        </Link></div>
         </section>
 
         <div>

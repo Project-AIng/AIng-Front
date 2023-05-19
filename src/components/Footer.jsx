@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RiInstagramFill, RiFacebookBoxFill, RiYoutubeFill, RiGithubFill } from 'react-icons/ri';
-import './Footer.css';
+import './css/Footer.css';
 
 export default function Footer() {
     let date = new Date();

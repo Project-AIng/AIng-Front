@@ -1,13 +1,16 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Room from "../components/Room";
+import "./ChatSpeak.css";
 
 export default function Interview() {
-  const {state: { topic }, // topic 값 추출
+  const {state: { topic, emoticon}, // topic 값 추출
   } = useLocation();
+  
   return (
-    <div className="text-black">
-      {topic}에 대해서 CHAT
+    <div>
+      <div className="ChatSpeakText">
+        <div className="TextColor">Chat </div>Topic or Situation : {topic} {emoticon} </div>
       <br></br>
       <Room />
     </div>

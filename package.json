@@ -20,6 +20,7 @@
     "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.0.0-rc.1",
     "swiper": "^9.2.0",
     "use": "^3.1.1",
     "use-immer": "^0.8.1",

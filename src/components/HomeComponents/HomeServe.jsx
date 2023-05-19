@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import  useScrollFadeIn  from '../Hooks/useScrollFadeIn';
+import  useScrollFadeIn  from '../../Hooks/useScrollFadeIn';
 import { Link } from 'react-router-dom';
 
-const S = { // css
+const S = { 
     Wrapper: styled.section`
     width: 100%;
     padding: 120px 0;
@@ -22,7 +22,6 @@ const S = { // css
     Title: styled.h2`
     margin-bottom: 2rem;
     text-align: center;
-    font-family: "Gelasio", serif;
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 1.1;

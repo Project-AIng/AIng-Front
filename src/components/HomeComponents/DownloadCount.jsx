@@ -1,5 +1,5 @@
 import React from 'react';
-import useScrollCount from '../Hooks/useScrollCount';
+import useScrollCount from '../../Hooks/useScrollCount';
 
 const DownloadCountPage = () => {
 const { ref } = useScrollCount(650, 0, 3000, 0);
@@ -10,7 +10,7 @@ return (
         <p
         ref={ref}
         style={{
-            fontSize: '2rem',
+            fontSize: '1.75rem',
             fontWeight: 'bold',
             color: 'black',
             display: 'inline-block',
@@ -18,7 +18,7 @@ return (
         >
         0
         </p>
-        <span style={{ fontSize: '2rem', fontWeight: 'bold', color: 'black' }}>
+        <span style={{ fontSize: '1.75rem', fontWeight: 'bold', color: 'black' }}>
         +
         </span>
         <h1 style={{ color: 'black' }}>누적 다운로드 수</h1>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link,Route,Routes } from 'react-router-dom';
 import Mypage from '../pages/Mypage';
 import Deep from '../pages/Deep';
-import './MypageMenu.css';
+import './css/MypageMenu.css';
 
 
 export default function MypageMenu() {

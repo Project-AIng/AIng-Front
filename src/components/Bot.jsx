@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Room.css";
+import "./css/Room.css";
 
 export default function Bot(props) {
   const [input, setInput] = useState("");

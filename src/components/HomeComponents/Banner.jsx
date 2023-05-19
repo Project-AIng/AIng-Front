@@ -4,7 +4,7 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './Banner.css';
+import '../css/Banner.css';
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 export default function Banner() {

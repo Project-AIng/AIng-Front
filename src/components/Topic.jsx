@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Topic.css";
+import "./css/Topic.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -19,7 +19,7 @@ export default function Topic({ topic, emoticon }) {
     axios
       .post("http://localhost:5000/set_topic", { topic })
       .then(() => {
-        navigate("/Chat", { state: { topic } });
+        navigate("/Chat", { state: { topic, emoticon } });
       })
       .catch((error) => {
         console.error(error);
@@ -30,7 +30,7 @@ export default function Topic({ topic, emoticon }) {
     axios
       .post("http://localhost:5000/set_topic", { topic })
       .then(() => {
-        navigate("/Speak", { state: { topic } });
+        navigate("/Speak", { state: { topic,emoticon } });
       })
       .catch((error) => {
         console.error(error);
