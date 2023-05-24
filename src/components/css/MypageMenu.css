@@ -1,0 +1,27 @@
+.MyContainer {
+    font-weight: 500;
+    font-size: 17px;
+    background-color: white;
+    color:rgb(146, 146, 146);
+    padding: 5%;
+    width: auto;
+    height: 793px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5px;
+}
+
+.MyPageMenuBar{
+    float:left;
+    width: 200px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.MyPageContent{
+    float:left;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+
