@@ -19,9 +19,12 @@ export default function Bot(props) {
     const message = `You: ${input}`;
     props.onMessage(message);
 
+    const token = localStorage.getItem('auth_token');
+
     try {
       const response = await axios.post("http://localhost:5000/generate", {
         input_text: input,
+        token: token
       });
 
       const reply = `Bot: ${response.data.text}`;

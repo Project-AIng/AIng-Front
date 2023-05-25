@@ -18,6 +18,14 @@ export default function Login() {
             });
             const token = response.data.token;
             localStorage.setItem('auth_token', token);
+            // After successfully logging in, request the email from the /get_email endpoint
+            const emailResponse = await axios.post('http://localhost:5000/get_email', {
+                token: token  // assuming that your Flask server expects the token in the request body
+            });
+            if (emailResponse.status === 200) {
+                // Optionally, save the email to localStorage or another suitable place
+                localStorage.setItem('user_email', emailResponse.data.email);
+            }
             navigate("/"); 
             alert("로그인 완료");
             window.location.reload();

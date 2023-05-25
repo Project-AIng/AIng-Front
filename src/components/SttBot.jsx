@@ -14,9 +14,12 @@ export default function SttBot({ onMessage, onOtherResult, startRecording, stopR
     const message = `You: ${transcript}`;
     onMessage(message);
 
+    const token = localStorage.getItem('auth_token');
+
     try {
       const response = await axios.post("http://localhost:5000/generate", {
         input_text: transcript,
+        token: token
       });
 
       const reply = `Bot: ${response.data.text}`;
