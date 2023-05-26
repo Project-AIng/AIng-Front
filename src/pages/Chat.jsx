@@ -19,6 +19,9 @@ export default function Interview() {
   const closeModal = () => {
     setShowModal(false);
   };
+  const changeTopic = (newTopic) => {
+    console.log("New Topic:", newTopic);
+  };
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -45,7 +48,11 @@ export default function Interview() {
         {emoticon}{" "}
       </div>
       <br></br>
-      <Room openModal={openModal} setShowModal={setShowModal} />
+      <Room
+        openModal={openModal}
+        setShowModal={setShowModal}
+        changeTopic={changeTopic}
+      />
       {showModal && (
         <Modal closeModal={closeModal}>
           {imageUrl ? (

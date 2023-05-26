@@ -65,7 +65,7 @@ export default function Room({ showModal, setShowModal }) {
     }
   };
   useEffect(() => {
-    if (messages.length === 4) {
+    if (messages.length === 2) {
       setShowModal(true); // Show the modal in the parent component
     }
   }, [messages]);

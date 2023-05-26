@@ -9,11 +9,11 @@ export default function Topic({ topic, emoticon }) {
 
   const handleMouseEnter = () => {
     setShowComponent(true);
-    }
+  };
 
-    const handleMouseLeave = () => {
-        setShowComponent(false);
-    };
+  const handleMouseLeave = () => {
+    setShowComponent(false);
+  };
 
   const handleChatClick = () => {
     axios
@@ -30,13 +30,12 @@ export default function Topic({ topic, emoticon }) {
     axios
       .post("http://localhost:5000/set_topic", { topic })
       .then(() => {
-        navigate("/Speak", { state: { topic,emoticon } });
+        navigate("/Speak", { state: { topic, emoticon } });
       })
       .catch((error) => {
         console.error(error);
       });
   };
-  
 
   return (
     <div className="parentContainer">
@@ -48,8 +47,8 @@ export default function Topic({ topic, emoticon }) {
         {showComponent ? (
           <>
             <div>
-            <div onClick={handleSpeakClick}>Speak Go👄</div>
-            <br></br>
+              <div onClick={handleSpeakClick}>Speak Go👄</div>
+              <br></br>
               <div onClick={handleChatClick}>Chat Go💬</div>
             </div>
           </>
