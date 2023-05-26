@@ -112,7 +112,7 @@ export default function Room() {
               </div>
                   </div>
                 </div>
-                <div className="reslutLabel">
+                <div className="resultLabel">
                   {resultLabels[index]} 
                 </div>
               </div>

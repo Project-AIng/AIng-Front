@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled ,{ keyframes }from 'styled-components';
 
 const Container = styled.div`
     padding: 100px;
@@ -13,10 +13,19 @@ const TextContainer = styled.div`
     flex: 1;
     padding-right: 16px;
 `;
+const fadeIn = keyframes`
+    from {
+    opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+`;
 
 const Image = styled.img`
     width: 50%; 
     border-radius: 60px; 
+    animation: ${fadeIn} 1s ease-in-out;
 `;
 const Text = styled.div`
     color: black;
@@ -38,11 +47,11 @@ const DetailText = styled.div`
     font-weight:400;
 `;
 
-export default function HomeServe1() {
+export default function Guide5() {
     return (
     <>
         <Container>
-        <Image src="/images/homeServe1.png" alt="homeServe1" />
+        <Image src="/images/Guide5.png" alt="Guide5" />
         <TextContainer>
             <RoundedText>AI 튜터링</RoundedText>
             <Text>

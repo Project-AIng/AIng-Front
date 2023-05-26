@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Mypage.css';
 
 export default function Mypage() {
     const [user, setUser] = useState(null);
@@ -22,14 +23,17 @@ export default function Mypage() {
     }, []);
 
     if (!user) {
-        return <div>Loading...</div>;
+        return <div className='text-black'>Loading...</div>;
     }
 
     return (
-        <div>
-            <h1>MyPage</h1>
-            <p>Name: {user.name}</p>
-            <p>Email: {user.email}</p>
+        <div className='MyPageContainer'>
+            <div className='title'>내 정보</div><span className='MyPageLine'></span>
+            <div className='UserInfoContainer'>
+            <div className='p-2'>이름 <div className='UserInfoBox'>{user.name}</div></div>
+            <div className='p-2'>아이디 <div className='UserInfoBox'>{user.email}</div></div>
+
+            </div>
         </div>
     );
 }
