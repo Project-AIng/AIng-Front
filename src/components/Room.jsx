@@ -4,10 +4,14 @@ import Bot from "./Bot";
 import MessageInfo from "./MessageInfo";
 import "./css/Room.css";
 
-
-
-export default function Room() {
-  const resultLabels=["GRAMMAR", "CLARITY", "COHERENCE" ,"VOCABULARY", "STRUCTURE"]
+export default function Room({ showModal, setShowModal }) {
+  const resultLabels = [
+    "GRAMMAR",
+    "CLARITY",
+    "COHERENCE",
+    "VOCABULARY",
+    "STRUCTURE",
+  ];
   function printIfNumericString(input) {
     if (input.startsWith("GRA")) {
       return input;
@@ -60,6 +64,11 @@ export default function Room() {
       console.error(error);
     }
   };
+  useEffect(() => {
+    if (messages.length === 2) {
+      setShowModal(true); // Show the modal in the parent component
+    }
+  }, [messages]);
 
   return (
     <div className="parent-container">
@@ -77,8 +86,10 @@ export default function Room() {
                   : null
               }
             >
-            {message}
-            {message.startsWith("You:") && <span className="Check">Check!</span>}
+              {message}
+              {message.startsWith("You:") && (
+                <span className="Check">Check!</span>
+              )}
             </div>
           ))}
         </div>
@@ -92,34 +103,32 @@ export default function Room() {
           <div className="info-container">
             <span className="recommendation">recommendation</span>
             <div className="recommendationInner">
-            <MessageInfo
-              message={selectedMessage.apiResult}
-              previousResults={selectedMessage.otherResults}
-            />
+              <MessageInfo
+                message={selectedMessage.apiResult}
+                previousResults={selectedMessage.otherResults}
+              />
             </div>
             <button onClick={() => setSelectedMessage(null)}>close</button>
           </div>
         ) : null}
-        <div className="ScoreBoard">Score Board</div> 
-        <div className="other-results"> 
-            {numberValues.map((value, index) => (
-              <div key={index} className="result-item">
-                
-                <div className="score-circle">
-                  {value}
-              <div className="score-bar">
-              <div className="score-bar-fill" style={{ height: `${value}px` }}>
-              </div>
-                  </div>
-                </div>
-                <div className="resultLabel">
-                  {resultLabels[index]} 
+        <div className="ScoreBoard">Score Board</div>
+        <div className="other-results">
+          {numberValues.map((value, index) => (
+            <div key={index} className="result-item">
+              <div className="score-circle">
+                {value}
+                <div className="score-bar">
+                  <div
+                    className="score-bar-fill"
+                    style={{ height: `${value}px` }}
+                  ></div>
                 </div>
               </div>
-            ))}
-          
-          </div>
+              <div className="reslutLabel">{resultLabels[index]}</div>
+            </div>
+          ))}
         </div>
+      </div>
     </div>
   );
 }
