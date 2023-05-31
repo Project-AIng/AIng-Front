@@ -10,7 +10,8 @@ export default function Interview() {
     state: { topic, emoticon }, // topic 값 추출
   } = useLocation();
   const [showModal, setShowModal] = useState(false);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [wordcloudImageUrl, setWordcloudImageUrl] = useState(null);
+  const [catImageUrl, setCatImageUrl] = useState(null);
 
   const openModal = () => {
     setShowModal(true);
@@ -24,23 +25,25 @@ export default function Interview() {
   };
 
   useEffect(() => {
-    const fetchImage = async () => {
+    const fetchImagesUrl = async () => {
       try {
-        const imageResponse = await axios.get(
-          "http://localhost:5000/get_image",
-          { responseType: "blob" }
+        const response = await axios.get(
+          "http://localhost:5000/get_images_url"
         );
-        const imageUrl = URL.createObjectURL(imageResponse.data);
-        setImageUrl(imageUrl);
+        const wordcloudUrl = response.data.wordcloudUrl;
+        const catUrl = response.data.catUrl;
+        setWordcloudImageUrl(wordcloudUrl);
+        setCatImageUrl(catUrl);
       } catch (error) {
         console.error(error);
       }
     };
 
     if (showModal) {
-      fetchImage();
+      fetchImagesUrl();
     }
   }, [showModal]);
+
   return (
     <div>
       <div className="ChatSpeakText">
@@ -55,11 +58,26 @@ export default function Interview() {
       />
       {showModal && (
         <Modal closeModal={closeModal}>
-          {imageUrl ? (
-            <img src={imageUrl} alt="Image" />
-          ) : (
-            <p>Loading image...</p>
-          )}
+          <div className="ImageContainer">
+            {wordcloudImageUrl ? (
+              <>
+                <img
+                  src={wordcloudImageUrl}
+                  alt="Wordcloud"
+                  className="WordcloudImage"
+                />
+              </>
+            ) : (
+              <p>Loading wordcloud image...</p>
+            )}
+            {catImageUrl ? (
+              <>
+                <img src={catImageUrl} alt="Cat" className="CatImage" />
+              </>
+            ) : (
+              <p>Loading cat image...</p>
+            )}
+          </div>
         </Modal>
       )}
     </div>

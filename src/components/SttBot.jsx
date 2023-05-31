@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "./css/Room.css";
+import React from 'react';
 
 export default function SttBot({ onMessage, onOtherResult, startRecording, stopRecording }) {
   const [isRecording, setIsRecording] = useState(false);
@@ -55,19 +56,29 @@ export default function SttBot({ onMessage, onOtherResult, startRecording, stopR
     <div className="input_chat" style={{ textAlign: "center" }}>
       <form onSubmit={(e) => e.preventDefault()}>
       {isRecording && (
-          <div className="alert" style={{ marginBottom: "10px",  color: "#136dd4",fontWeight:"bold", padding: "5px", }}>
-            듣고있어요..
+          <div className="alert" style={{ marginBottom: "10px",  
+          color: "black",fontWeight:"bold", padding: "5px", }}>
+            Recording..
           </div>
         )}
         <button onClick={handleStartRecording} type="button" 
-        style={{  backgroundColor: isStopped ? "white" : "black", color: isStopped ? "black" : "white",marginRight: "20px",width: "75px", height: "40px",border: "1.5px solid black",fontWeight: "bold",pointerEvents: isStopped ? "auto" : "none"}}>
+        style={{  backgroundColor: isStopped ? "white" : "black", 
+        color: isStopped ? "black" : "white",marginRight: "20px",width: "75px",
+        height: "40px",border: "1.5px solid black",fontWeight: "bold",
+        pointerEvents: isStopped ? "auto" : "none"}}>
           🔴REC
         </button>
         <button onClick={handleStopRecording} type="button" 
-        style={{ backgroundColor: isStopped ? "black" : "white", color: isStopped ? "white" : "black",width: "75px", height: "40px",border: "1.5px solid black",fontWeight: "bold",pointerEvents: isStopped ? "none" : "auto" }}>
+        style={{ backgroundColor: isStopped ? "black" : "white", 
+        color: isStopped ? "white" : "black",width: "75px", height: "40px",
+        border: "1.5px solid black",fontWeight: "bold",pointerEvents: isStopped ? "none" : "auto" }}>
           🟥STOP
         </button>
       </form>
+
+      
     </div>
+
+    
   );
 }

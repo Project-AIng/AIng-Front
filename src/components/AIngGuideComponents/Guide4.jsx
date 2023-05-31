@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import useScrollFadeIn from '../../Hooks/useScrollFadeIn';
+
 const Container = styled.div`
     padding: 70px;
     display: flex;
@@ -33,6 +35,8 @@ const DetailText = styled.div`
 
 
 export default function Guide4() {
+    const fadeInText = useScrollFadeIn('left', 1, 0);
+
     return (
         <>
         <Container>
@@ -40,7 +44,7 @@ export default function Guide4() {
         <TextContainer>
             <Text>분석 결과
             </Text>
-            <DetailText>
+            <DetailText {...fadeInText}>
             대화할 때 마다 
             내 영어 문장 스코어를 확인할 수 있어요<br></br>
             나의 영어 능력치를 확인하면서 학습해보아요!

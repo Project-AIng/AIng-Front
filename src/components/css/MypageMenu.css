@@ -1,27 +1,61 @@
-.MyContainer {
-    font-weight: 500;
-    font-size: 17px;
-    background-color: white;
-    color:rgb(146, 146, 146);
-    padding: 5%;
-    width: auto;
-    height: 793px;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 5px;
+.MyPageMenuBarContainer {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
 }
 
-.MyPageMenuBar{
-    float:left;
-    width: 200px;
-    padding: 10px;
-    margin-left: 10px;
+.MyPageMenuBarContainer h1{
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    color: rgb(51, 51, 51);
 }
 
-.MyPageContent{
-    float:left;
-    padding: 10px;
-    margin-left: 10px;
+.MyPageMenuBar {
+    display: flex;
+    flex-direction: column;
+    color: rgb(51, 51, 51);    
+    font-size: 0.9rem;
+    border: 5px;
+    border-bottom: none;
+}
+
+.MyPageMenuBar li {
+    margin-bottom: 0.5px;
+    display: inline-block;
+    padding: 10px 50px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    border: 1px solid #d8d7d7c8;
+}
+
+
+.MyPageMenuBar li:hover {
+    background-color: #ececec;
+    color: rgb(63, 63, 63);
+}
+
+.MyPageMenuBar li:active {
+    background-color: #ececec;
+    color: rgb(63, 63, 63);
+}
+
+.MyPageMenuBar li.active {
+    background-color: #ececec;
+    color: rgb(63, 63, 63);
+}
+
+.MyPageDeep{
+    color:black;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.MyPageMenuContainer{
+    display: flex;
+    margin-bottom: 300px;
 }
 
 
